@@ -560,7 +560,7 @@ export default function OnlineSeatBookingPlatform() {
                 )}
               </section>
               {!isAdmin && (
-                <section className="panel">
+                <section className="panel booking-panel">
                   <h2>🎫 訂位確認</h2>
                   {!currentUser && <div className="notice">請先輸入姓名登入，才能選擇座位。</div>}
                   <div className="selected-box">
@@ -586,7 +586,7 @@ export default function OnlineSeatBookingPlatform() {
               )}
 
               {isAdmin && (
-                <section className="panel">
+                <section className="panel booking-panel">
                   <h2>🛡️ 管理者訂位紀錄</h2>
                   {records.length === 0 ? (
                     <p className="muted">目前沒有新的訂位紀錄。</p>
@@ -928,8 +928,11 @@ function AppStyles() {
         }
 
         .right-column {
+          display: contents;
+        }
+
+        .auth-card {
           order: 1;
-          width: 100%;
         }
 
         .side-panel {
@@ -940,6 +943,10 @@ function AppStyles() {
 
         .seats-panel {
           order: 3;
+        }
+
+        .booking-panel {
+          order: 4;
         }
         .panel, .auth-card { padding: 14px; border-radius: 20px; width: 100%; max-width: 100%; }
         .side-panel { position: static; gap: 10px; }
