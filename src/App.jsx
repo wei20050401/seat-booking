@@ -640,7 +640,8 @@ function AppStyles() {
       .app-page {
         min-height: 100vh;
         width: 100%;
-        padding: 14px;
+        max-width: 100%;
+        padding: 10px;
         overflow-x: hidden;
         background: #f3f4f6;
       }
@@ -689,9 +690,10 @@ function AppStyles() {
       .layout-grid {
         display: grid;
         grid-template-columns: 170px minmax(0, 1fr) 260px;
-        gap: 18px;
+        gap: 14px;
         align-items: start;
         width: 100%;
+        max-width: 100%;
       }
       .panel {
         padding: 24px;
@@ -763,28 +765,29 @@ function AppStyles() {
       }
       .stage {
         width: 82%;
-        margin: 0 auto 34px;
+        margin: 0 auto 22px;
         background: linear-gradient(135deg,#020617,#0f172a);
         color: white;
-        border-radius: 999px 999px 24px 24px;
-        padding: 22px;
+        border-radius: 999px 999px 20px 20px;
+        padding: 16px;
         text-align: center;
-        font-size: 36px;
+        font-size: 26px;
         font-weight: 900;
-        letter-spacing: .5em;
+        letter-spacing: .4em;
         box-shadow: 0 14px 34px rgba(15,23,42,.18);
       }
       .seat-scroll { width: 100%; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
       .seat-map {
         width: 100%;
-        min-width: 980px;
+        min-width: 0;
         display: grid;
-        gap: 12px;
+        gap: 8px;
       }
       .seat-row {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 5px;
+        width: 100%;
       }
       .seats-panel {
         color: #374151;
@@ -796,22 +799,23 @@ function AppStyles() {
         color: #374151;
       }
       .row-label {
-        width: 44px;
-        flex: 0 0 44px;
+        width: 28px;
+        flex: 0 0 28px;
         text-align: center;
-        font-size: 32px;
+        font-size: 18px;
         font-weight: 900;
         color: #374151;
       }
       .seat,
       .seat-placeholder {
-        height: 46px;
+        height: 34px;
         min-width: 0;
-        flex: 1;
-        border-radius: 18px;
-        font-size: 16px;
+        flex: 1 1 0;
+        border-radius: 10px;
+        font-size: clamp(8px, 0.8vw, 12px);
         font-weight: 900;
         transition: .15s ease;
+        padding: 0;
       }
       .seat.front { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
       .seat.middle { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
@@ -819,10 +823,10 @@ function AppStyles() {
       .seat.selected { background: #111827; color: white; transform: scale(1.05); box-shadow: 0 10px 20px rgba(15,23,42,.22); }
       .seat.booked { background: #d1d5db; color: #6b7280; }
       .aisle {
-        width: 22px;
-        flex: 0 0 22px;
-        height: 46px;
-        border-radius: 14px;
+        width: 12px;
+        flex: 0 0 12px;
+        height: 34px;
+        border-radius: 8px;
         background: #eef2f7;
       }
       .legend-grid {
@@ -900,40 +904,42 @@ function AppStyles() {
         .auth-card { width: 100%; }
       }
       @media (max-width: 760px) {
-        .home-page { padding: 12px; align-items: stretch; }
-        .home-card { min-height: calc(100vh - 24px); padding: 28px 18px; border-radius: 28px; display: flex; flex-direction: column; justify-content: center; }
+        html, body, #root { width: 100%; max-width: 100%; overflow-x: hidden; }
+        .home-page { padding: 10px; align-items: stretch; overflow-x: hidden; }
+        .home-card { min-height: calc(100vh - 20px); padding: 28px 16px; border-radius: 28px; display: flex; flex-direction: column; justify-content: center; }
         .home-icon { width: 72px; height: 72px; font-size: 32px; }
-        .home-card h1 { font-size: 42px; line-height: 1.05; }
+        .home-card h1 { font-size: 40px; line-height: 1.05; }
         .home-desc { font-size: 15px; line-height: 1.6; }
         .price-grid, .legend-grid { grid-template-columns: 1fr; }
 
-        .app-page { padding: 10px; overflow-x: hidden; }
-        .app-shell { gap: 12px; }
-        .hero-card { min-height: auto; padding: 24px 18px; border-radius: 24px; }
-        .hero-card h1 { font-size: 42px; line-height: 1.05; letter-spacing: -0.04em; }
-        .hero-card p { font-size: 15px; line-height: 1.6; }
-        .eyebrow { font-size: 11px; letter-spacing: .14em; }
+        .app-page { padding: 8px; overflow-x: hidden; }
+        .app-shell { gap: 10px; width: 100%; max-width: 100%; }
+        .hero-card { min-height: auto; padding: 22px 16px; border-radius: 24px; }
+        .hero-card h1 { font-size: 38px; line-height: 1.05; letter-spacing: -0.04em; }
+        .hero-card p { font-size: 14px; line-height: 1.6; }
+        .eyebrow { font-size: 10px; letter-spacing: .12em; }
 
-        .layout-grid { grid-template-columns: 1fr; gap: 12px; }
-        .panel, .auth-card { padding: 16px; border-radius: 22px; }
+        .layout-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; width: 100%; max-width: 100%; }
+        .panel, .auth-card { padding: 14px; border-radius: 20px; width: 100%; max-width: 100%; }
         .side-panel { position: static; gap: 10px; }
-        .right-column { gap: 12px; }
+        .right-column { gap: 10px; width: 100%; max-width: 100%; }
         .input-row { flex-direction: column; align-items: stretch; }
         .input-row .primary { width: 100%; }
         .action-row { grid-template-columns: 1fr 1fr; display: grid; }
 
-        .seat-header { align-items: stretch; flex-direction: column; gap: 12px; margin-bottom: 16px; }
-        .seat-header h2 { font-size: 22px; }
-        .filter-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-        .filter-buttons button { padding: 9px 6px; font-size: 13px; border-radius: 12px; }
-        .stage { width: 100%; margin-bottom: 16px; padding: 12px; font-size: 18px; letter-spacing: .22em; border-radius: 28px 28px 12px 12px; }
+        .seat-header { align-items: stretch; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+        .seat-header h2 { font-size: 20px; }
+        .filter-buttons { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+        .filter-buttons button { padding: 8px 4px; font-size: 12px; border-radius: 10px; }
+        .stage { width: 100%; margin-bottom: 14px; padding: 10px; font-size: 16px; letter-spacing: .18em; border-radius: 24px 24px 10px 10px; }
 
-        .seats-panel { min-height: auto; }
-        .seat-map { min-width: 620px; gap: 6px; }
-        .seat-row { gap: 4px; }
-        .row-label { width: 24px; flex: 0 0 24px; font-size: 18px; }
-        .seat, .seat-placeholder { height: 30px; border-radius: 8px; font-size: 10px; }
-        .aisle { width: 10px; flex: 0 0 10px; height: 30px; border-radius: 6px; }
+        .seats-panel { min-height: auto; overflow: hidden; }
+        .seat-scroll { overflow-x: hidden; width: 100%; }
+        .seat-map { width: 100%; min-width: 0; gap: 5px; }
+        .seat-row { gap: 3px; width: 100%; }
+        .row-label { width: 18px; flex: 0 0 18px; font-size: 14px; }
+        .seat, .seat-placeholder { height: 24px; border-radius: 6px; font-size: 7px; flex: 1 1 0; min-width: 0; }
+        .aisle { width: 5px; flex: 0 0 5px; height: 24px; border-radius: 4px; }
         .legend-grid { gap: 8px; margin-top: 14px; }
         .legend { padding: 10px 12px; font-size: 14px; }
 
