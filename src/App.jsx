@@ -774,7 +774,7 @@ function AppStyles() {
         letter-spacing: .5em;
         box-shadow: 0 14px 34px rgba(15,23,42,.18);
       }
-      .seat-scroll { width: 100%; overflow-x: auto; padding-bottom: 8px; }
+      .seat-scroll { width: 100%; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
       .seat-map {
         width: 100%;
         min-width: 980px;
@@ -900,10 +900,46 @@ function AppStyles() {
         .auth-card { width: 100%; }
       }
       @media (max-width: 760px) {
-        .app-page { padding: 14px; }
-        .home-card { padding: 30px 20px; }
+        .home-page { padding: 12px; align-items: stretch; }
+        .home-card { min-height: calc(100vh - 24px); padding: 28px 18px; border-radius: 28px; display: flex; flex-direction: column; justify-content: center; }
+        .home-icon { width: 72px; height: 72px; font-size: 32px; }
+        .home-card h1 { font-size: 42px; line-height: 1.05; }
+        .home-desc { font-size: 15px; line-height: 1.6; }
         .price-grid, .legend-grid { grid-template-columns: 1fr; }
-        .seat-header { align-items: stretch; flex-direction: column; }
+
+        .app-page { padding: 10px; overflow-x: hidden; }
+        .app-shell { gap: 12px; }
+        .hero-card { min-height: auto; padding: 24px 18px; border-radius: 24px; }
+        .hero-card h1 { font-size: 42px; line-height: 1.05; letter-spacing: -0.04em; }
+        .hero-card p { font-size: 15px; line-height: 1.6; }
+        .eyebrow { font-size: 11px; letter-spacing: .14em; }
+
+        .layout-grid { grid-template-columns: 1fr; gap: 12px; }
+        .panel, .auth-card { padding: 16px; border-radius: 22px; }
+        .side-panel { position: static; gap: 10px; }
+        .right-column { gap: 12px; }
+        .input-row { flex-direction: column; align-items: stretch; }
+        .input-row .primary { width: 100%; }
+        .action-row { grid-template-columns: 1fr 1fr; display: grid; }
+
+        .seat-header { align-items: stretch; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+        .seat-header h2 { font-size: 22px; }
+        .filter-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .filter-buttons button { padding: 9px 6px; font-size: 13px; border-radius: 12px; }
+        .stage { width: 100%; margin-bottom: 16px; padding: 12px; font-size: 18px; letter-spacing: .22em; border-radius: 28px 28px 12px 12px; }
+
+        .seats-panel { min-height: auto; }
+        .seat-map { min-width: 620px; gap: 6px; }
+        .seat-row { gap: 4px; }
+        .row-label { width: 24px; flex: 0 0 24px; font-size: 18px; }
+        .seat, .seat-placeholder { height: 30px; border-radius: 8px; font-size: 10px; }
+        .aisle { width: 10px; flex: 0 0 10px; height: 30px; border-radius: 6px; }
+        .legend-grid { gap: 8px; margin-top: 14px; }
+        .legend { padding: 10px 12px; font-size: 14px; }
+
+        .selected-box { min-height: 120px; padding: 14px; border-radius: 18px; }
+        .chips span { font-size: 12px; }
+        .records { max-height: 300px; }
       }
     `}</style>
   );
