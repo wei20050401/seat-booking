@@ -950,7 +950,7 @@ function AppStyles() {
         }
         .panel, .auth-card { padding: 14px; border-radius: 20px; width: 100%; max-width: 100%; }
         .side-panel { position: static; gap: 10px; }
-        .right-column { gap: 10px; width: 100%; max-width: 100%; }
+        .right-column { display: contents; }
         .input-row { flex-direction: column; align-items: stretch; }
         .input-row .primary { width: 100%; }
         .action-row { grid-template-columns: 1fr 1fr; display: grid; }
@@ -974,6 +974,12 @@ function AppStyles() {
         .selected-box { min-height: 120px; padding: 14px; border-radius: 18px; }
         .chips span { font-size: 12px; }
         .records { max-height: 300px; }
+
+        .layout-grid > .side-panel { order: 2 !important; }
+        .layout-grid > .seats-panel { order: 3 !important; }
+        .right-column { display: contents !important; }
+        .right-column > .auth-card { order: 1 !important; }
+        .right-column > .booking-panel { order: 4 !important; }
       }
     `}</style>
   );
