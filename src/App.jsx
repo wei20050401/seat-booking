@@ -919,7 +919,28 @@ function AppStyles() {
         .hero-card p { font-size: 14px; line-height: 1.6; }
         .eyebrow { font-size: 10px; letter-spacing: .12em; }
 
-        .layout-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; width: 100%; max-width: 100%; }
+        .layout-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .right-column {
+          order: 1;
+          width: 100%;
+        }
+
+        .side-panel {
+          order: 2;
+          position: static;
+          gap: 10px;
+        }
+
+        .seats-panel {
+          order: 3;
+        }
         .panel, .auth-card { padding: 14px; border-radius: 20px; width: 100%; max-width: 100%; }
         .side-panel { position: static; gap: 10px; }
         .right-column { gap: 10px; width: 100%; max-width: 100%; }
